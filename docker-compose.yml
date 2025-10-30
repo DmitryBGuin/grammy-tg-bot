@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: telegram-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./users.json:/app/users.json
+      - ./meter_data.json:/app/meter_data.json
+    working_dir: /app
+    command: node dist/index.js
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=${MONGODB_URI}
+    networks:
+      - bot-network
+
+networks:
+  bot-network:
+    driver: bridge

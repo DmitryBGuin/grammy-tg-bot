@@ -1,0 +1,12 @@
+.git
+node_modules
+npm-debug.log
+.nyc_output
+coverage
+.gitignore
+README.md
+LICENSE
+.env
+*.log
+.vscode
+dist

@@ -2,9 +2,16 @@
   "name": "grammy-tg-bot",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node dist/index.js",
+    "start:docker": "node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "dev:docker": "ts-node src/index.ts",
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +19,17 @@
   "description": "",
   "dependencies": {
     "dotenv": "^16.4.7",
-    "grammy": "^1.35.1",
-    "nodemon": "^3.1.9"
+    "grammy": "^1.38.3",
+    "mongoose": "^8.8.3",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^24.9.2",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.5",
+    "typescript": "^5.9.3"
   }
 }
