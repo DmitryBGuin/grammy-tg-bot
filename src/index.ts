@@ -218,6 +218,23 @@ bot.command('history', async (ctx) => {
   }
 });
 
+// Команда помощи
+bot.command('help', async (ctx) => {
+  try {
+    const helpMessage =
+      `Доступные команды бота:\n\n` +
+      `/start - Начать работу с ботом\n` +
+      `/register - Зарегистрироваться в системе\n` +
+      `/submit_readings - Отправить показания счетчиков воды\n` +
+      `/history - Просмотреть историю отправленных показаний\n` +
+      `/help - Показать это сообщение помощи`;
+    
+    await ctx.reply(helpMessage);
+  } catch (error) {
+    await handleError(ctx, error as Error, 'обработка команды /help');
+  }
+});
+
 // Ответ на любое сообщение
 bot.on('message', (ctx) => {
   if (ctx.message.text) {
